@@ -6,6 +6,9 @@ ifeq ($(findstring x86_64,$(SYS))$(findstring linux,$(SYS)),x86_64linux)
 PAL_HOST := Linux
 else ifeq ($(findstring freebsd,$(SYS)),freebsd)
 PAL_HOST := FreeBSD
+# XNU is a BSD derivative, so use the same PAL as FreeBSD for that platform
+else ifeq ($(findstring apple,$(SYS)),apple)
+PAL_HOST := FreeBSD
 else
 $(error Unsupported platform: $(SYS))
 endif
