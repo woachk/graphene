@@ -92,6 +92,15 @@ typedef struct {
     PAL_NUM rdi, rsi, rbp, rbx, rdx, rax, rcx;
     PAL_NUM rsp, rip;
     PAL_NUM efl, csgsfs, err, trapno, oldmask, cr2;
+#elif __arm64__ 
+    PAL_NUM r0, r1, r2, r3, r4, r5, r6, r7;
+    PAL_NUM r8, r9, r10, r11, r12, r13, r14, r15;
+    PAL_NUM ip0, ip1; // r16/r17
+    PAL_NUM r18; // X18, platform register on iOS and Windows on ARM64
+    PAL_NUM r19, r20, r21, r22, r23, r24, r25, r26, r27, r28;
+    PAL_NUM fp; //  r29
+    PAL_NUM lr; // r30
+    PAL_NUM sp; // stack pointer
 #else
 # error "Unsupported architecture"
 #endif
